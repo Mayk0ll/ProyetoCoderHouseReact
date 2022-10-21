@@ -1,17 +1,17 @@
 import React from 'react'
 import './item.css'
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const Item = ({product}) => {
     return (
-        <Link to={`/detail/${product.id}`}>
+        <NavLink to={`/detail/${product.id}`} className="textDecoration">
         <div className='card'>
             <img src={product.image} alt="error" className='cardImage'/>
             <div className='cardInfo'>
-                <p className=''>{product.name}</p>
-                <p className=''>{product.price}$</p>
+                <p className='itemInfo'>{product.name}</p>
+                <p className='itemInfo'>{product.price}$</p>
             </div>
         </div>
-        </Link>
+        </NavLink>
     )
 }

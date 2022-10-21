@@ -14,7 +14,7 @@ export const ItemListContainer = ({greeting}) => {
       let productos = []
       if(categoryName){
         productos = products.filter( cate => cate.category === categoryName)
-      }
+      } else productos = [...products]
       setTimeout(() => {
         resolve(productos)
       }, 1000);

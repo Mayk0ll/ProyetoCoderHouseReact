@@ -7,11 +7,20 @@
 .cardImage{
     width: 200px;
     height: 200px;
+    width: 100%;
 }
 
 .cardInfo{
     display: flex;
     justify-content: space-between;
     font-size: 20px;
-    padding: 0 15px;
+    padding: 10px 15px 0;
+}
+
+.itemInfo{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+}
+.textDecoration{
+    text-decoration: none;
 }
