@@ -1,0 +1,35 @@
+.containerCount{
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.containerCountBtn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    border:  1px solid rgb(140, 140, 140);
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+}
+.btnIncrDec{
+    color: blue;
+    background-color: white;
+    font-size: 25px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+
+.btnAgregarCarrito{
+    color: blue;
+    border: 1px solid blue;
+    height: 40px;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 0 20px;
+}

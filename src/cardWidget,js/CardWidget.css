@@ -1,0 +1,15 @@
+.num{
+    font-size: 1.3rem;
+    background-color: white;
+    border-radius: 0.2rem;
+    padding: 0.1rem 0.5rem;
+    color: black;
+}
+
+.car{
+    cursor: pointer;
+    width: 5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
