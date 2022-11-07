@@ -4,21 +4,25 @@ import { useParams } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext';
 import { products } from '../../productos';
 import { ItemCount } from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
 import './detail.css'
 
 export const Detail = () => {
     
     const {id} = useParams();
     const [detail, setDetail] = useState({});
+    const [botonCarrito, setbotonCarrito] = useState(false);
     const {addProducts} = useContext(CartContext);
 
     
     useEffect(()=>{
         setDetail(products.find(elem => elem.id === Number(id)))
+        setbotonCarrito(false);
     },[])
 
     const agregarProducto = quantity => {
         addProducts(detail, quantity)
+        setbotonCarrito(true);
     }
 
     return (
@@ -41,6 +45,13 @@ export const Detail = () => {
                 </div>
                 <br /><br />
                 <h3>descripcion:</h3><h4><br />{detail.description}</h4>
+                {
+                    botonCarrito&&<>
+                    <Link to='/cart'>
+                        <button>ir al Carrito</button>
+                    </Link>
+                    </>
+                }
                 <div>
                     <ItemCount stock={detail.stock} initial={1} onAdd={agregarProducto}/>
                 </div>

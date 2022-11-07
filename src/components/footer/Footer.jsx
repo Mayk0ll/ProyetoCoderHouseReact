@@ -2,6 +2,6 @@ import React from 'react'
 
 export const Footer = () => {
   return (
-    <div>Derechos reservados freelancer Michael Vasquez</div>
+    <div style={{position: 'fixed', left: 0, bottom: 0}}>Derechos reservados freelancer Michael Vasquez</div>
   )
 }
