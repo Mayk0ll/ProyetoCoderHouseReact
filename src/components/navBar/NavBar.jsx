@@ -1,7 +1,7 @@
 import React from 'react'
 import { CardWidget } from '../cardWidget,js/CardWidget';
 import './navBar.css'
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 
 export const NavBar = () => {
@@ -19,7 +19,9 @@ export const NavBar = () => {
                 <NavLink to='/product/zapatos' className={({isActive})=>isActive === true ? 'claseActiva itemEnlace':'claseInactiva itemEnlace'}>Zapatos</NavLink>
             </div>
             <div className="extra">
-                <CardWidget />
+                <Link to={'/cart'}>
+                    <CardWidget />
+                </Link>
             </div>
             
         </div>

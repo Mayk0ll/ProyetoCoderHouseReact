@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from 'react'
+import { useContext } from 'react';
 import { useParams } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext';
 import { products } from '../../productos';
+import { ItemCount } from '../ItemCount/ItemCount';
 import './detail.css'
 
 export const Detail = () => {
+    
     const {id} = useParams();
-
     const [detail, setDetail] = useState({});
+    const {addProducts} = useContext(CartContext);
 
     
     useEffect(()=>{
-        // setDetail(products.find(elem => elem.id === Number(id)))
+        setDetail(products.find(elem => elem.id === Number(id)))
     },[])
+
+    const agregarProducto = quantity => {
+        addProducts(detail, quantity)
+    }
 
     return (
         <div className='containerDetail'>
@@ -33,8 +41,11 @@ export const Detail = () => {
                 </div>
                 <br /><br />
                 <h3>descripcion:</h3><h4><br />{detail.description}</h4>
-
+                <div>
+                    <ItemCount stock={detail.stock} initial={1} onAdd={agregarProducto}/>
+                </div>
             </div>
+            
         </div>
     )
 }

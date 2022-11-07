@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import {products} from '../productos.js';
+import {products} from '../../productos.js';
 import { ItemList } from '../itemList/ItemList.jsx'
 import { useParams } from 'react-router-dom'
 
 export const ItemListContainer = ({greeting}) => {
 
   const {categoryName} = useParams()
-
-
 
   const obtenerproductos = () => {
     return new Promise((resolve,reject) => {
@@ -22,7 +20,6 @@ export const ItemListContainer = ({greeting}) => {
   }
 
   const [allProducts, setAllProducts] = useState([]);
-
   
   useEffect(()=>{
     obtenerproductos().then(resp => setAllProducts(resp))
