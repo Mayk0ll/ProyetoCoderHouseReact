@@ -5,6 +5,8 @@ import { CartContext } from '../../context/CartContext';
 import { products } from '../../productos';
 import { ItemCount } from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
+import { doc, getDoc} from "firebase/firestore";
+import { db } from "../../utils/firebase/firebase";
 import './detail.css'
 
 export const Detail = () => {
@@ -16,9 +18,15 @@ export const Detail = () => {
 
     
     useEffect(()=>{
-        setDetail(products.find(elem => elem.id === Number(id)))
-        setbotonCarrito(false);
+        getData();
     },[])
+
+    const getData = async() => {
+        const queryRef = doc(db,'productos',id)
+        const resp = await getDoc(queryRef)
+        console.log(resp);
+        setDetail({id: resp.id,  ...resp.data()})
+    }
 
     const agregarProducto = quantity => {
         addProducts(detail, quantity)
