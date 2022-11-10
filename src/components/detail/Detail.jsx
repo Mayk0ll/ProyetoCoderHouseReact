@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext';
-import { products } from '../../productos';
 import { ItemCount } from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import { doc, getDoc} from "firebase/firestore";
@@ -24,7 +23,6 @@ export const Detail = () => {
     const getData = async() => {
         const queryRef = doc(db,'productos',id)
         const resp = await getDoc(queryRef)
-        console.log(resp);
         setDetail({id: resp.id,  ...resp.data()})
     }
 
