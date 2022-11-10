@@ -3,25 +3,28 @@ import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { collection, addDoc} from "firebase/firestore";
 import {db} from '../../utils/firebase/firebase'
+import { useState } from 'react';
 
 export const CartContainer = () => {
+
+  const [ordenCreada, setOrdenCreada] = useState({estado: false, id:''});
 
   const {productosCarritos, getTotalPrice, removeProduct, clear} = useContext(CartContext)
 
   const sendOrder = (e) => {
     e.preventDefault();
-    const order = { buyer: { name:e.target[0].value, phone: e.target[1].value, email: e.target[2].value }, items: productosCarritos, total: getTotalPrice()}
+    const order = { buyer: { name:e.target[0].value, phone: e.target[1].value, email: e.target[2].value }, date: Date(),items: productosCarritos, total: getTotalPrice()}
     console.log(order)
 
     const queryRef = collection(db, 'ordenes');
-    const resp = addDoc(queryRef, order).then(result => console.log(result))
+    const resp = addDoc(queryRef, order).then(result => setOrdenCreada({estado: true, id:result.id}))
     // const resp = await addDoc(queryRef, order)
   }
 
   return (
     <div>
       <p>pagina carrito</p>
-      {}
+      {ordenCreada.estado&& <p><strong>se a creado la orden {ordenCreada.id} </strong></p> }
       {
         productosCarritos.length > 0?<>
         <div>
