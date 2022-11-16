@@ -1,26 +1,37 @@
 .card{
     border: 1px solid black;
-    width: 200px;
-    height: 300px;
-    border-radius: 3px;
+    background-color: rgb(70 70 70);
+    color: white;
+    width: 250px;
+    height: 350px;
+    border-radius: 5px;
+    transition: 0.5s all ease;
 }
+
+.card:hover{
+    transition: 0.5s all ease;
+    background-color: rgb(48 48 48);
+    
+}
+
 .cardImage{
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     width: 100%;
 }
 
 .cardInfo{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     font-size: 20px;
     padding: 10px 15px 0;
 }
 
 .itemInfo{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: black;
 }
 .textDecoration{
     text-decoration: none;
 }
+

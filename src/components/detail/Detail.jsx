@@ -54,7 +54,7 @@ export const Detail = () => {
                 {
                     botonCarrito&&<>
                     <Link to='/cart'>
-                        <button>ir al Carrito</button>
+                        <button className='btnAddCarrito'>ir al Carrito</button>
                     </Link>
                     </>
                 }
